@@ -9,6 +9,8 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
+        public CefViewHelper Helper { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
@@ -22,9 +24,14 @@ namespace WpfApp1
 
         private void BtnLoad_Click(object sender, RoutedEventArgs e)
         {
+            if (Helper == null)
+            {
+                var demoPage = @"local://whatever/html/index.html";
+                Helper = CefViewHelper.Create(null, demoPage);
+            }
+
             GridFrontPage.Children.Clear();
-            var demoPage = @"local://whatever/html/index.html";
-            DemoHelper.AppendCefBrowser(GridFrontPage, demoPage, null);
+            Helper.AppendCefBrowser(GridFrontPage);
         }
     }
 }

@@ -46,7 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CefBrowser\CefConfig.cs" />
-    <Compile Include="CefBrowser\DemoHelper.cs" />
+    <Compile Include="CefBrowser\CefViewHelper.cs" />
     <Compile Include="CefBrowser\EmbeddedFileResourceHandler.cs" />
     <Compile Include="CefBrowser\LocalFileResourceHandler.cs" />
     <Compile Include="CefBrowser\MySchemeHandlerFactory.cs" />

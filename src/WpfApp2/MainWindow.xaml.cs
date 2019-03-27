@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using System.Windows.Media;
 using CefLibs.CefBrowser;
 using WpfApp2.ViewModel;
 
@@ -11,6 +10,7 @@ namespace WpfApp2
     public partial class MainWindow : Window
     {
         public MainWindowJs MainWindowJs { get; set; }
+        public CefViewHelper Helper { get; set; }
 
         public MainWindow()
         {
@@ -26,12 +26,17 @@ namespace WpfApp2
 
         private void BtnLoad_Click(object sender, RoutedEventArgs e)
         {
+            if (Helper == null)
+            {
+                var demoPage = @"local://whatever/html/index.html";
+                var asyncJsObject = new AsyncJsObject();
+                asyncJsObject.Name = "mainWindowVo";
+                asyncJsObject.BindObject = this.MainWindowJs;
+                Helper = CefViewHelper.Create(asyncJsObject, demoPage);
+            }
+
             GridFrontPage.Children.Clear();
-            var demoPage = @"local://whatever/html/index.html";
-            var asyncJsObject = new AsyncJsObject();
-            asyncJsObject.Name = "mainWindowVo";
-            asyncJsObject.BindObject = this.MainWindowJs;
-            DemoHelper.AppendCefBrowser(GridFrontPage, demoPage, asyncJsObject);
+            Helper.AppendCefBrowser(GridFrontPage);
         }
     }
 }
