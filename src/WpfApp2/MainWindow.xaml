@@ -7,8 +7,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Grid Grid.Row="0" Grid.Column="0" x:Name="GridFrontPage" ZIndex="0">
-            <Button x:Name="BtnLoad" Content="这是网页层容器" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="75"/>
+
+        <Grid Grid.Row="0" Grid.Column="0" x:Name="GridBackPage" ZIndex="0">
+            <Image x:Name="DemoControl" Source="_Local/images/player-bg.jpg" Stretch="Fill"/>
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="0" x:Name="GridFrontPage" ZIndex="1">
+            <Button x:Name="BtnLoad" Content="加载网页" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="75"/>
         </Grid>
     </Grid>
 </Window>

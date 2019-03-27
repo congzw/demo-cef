@@ -24,7 +24,7 @@ namespace WpfApp1
         {
             GridFrontPage.Children.Clear();
             var demoPage = @"local://whatever/html/index.html";
-            DemoHelper.AppendCefBrowser(GridFrontPage, demoPage);
+            DemoHelper.AppendCefBrowser(GridFrontPage, demoPage, null);
         }
     }
 }

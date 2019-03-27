@@ -10,7 +10,7 @@ namespace CefLibs.CefBrowser
     {
         public bool Initialized { get; set; }
 
-        public ChromiumWebBrowser CreateChromiumWebBrowser(bool autoInit)
+        public ChromiumWebBrowser CreateChromiumWebBrowser(bool autoInit, AsyncJsObject asyncJsObject)
         {
             if (!Initialized)
             {
@@ -23,6 +23,10 @@ namespace CefLibs.CefBrowser
                 Init(defaultCefSettings);
             }
             var chromiumWebBrowser = new ChromiumWebBrowser();
+            if (asyncJsObject != null)
+            {
+                chromiumWebBrowser.RegisterAsyncJsObject(asyncJsObject.Name, asyncJsObject.BindObject, (BindingOptions)asyncJsObject.BindingOptions);
+            }
             return chromiumWebBrowser;
         }
 
@@ -97,5 +101,20 @@ namespace CefLibs.CefBrowser
         }
 
         #endregion
+    }
+
+    public class AsyncJsObject
+    {
+        /// <summary>
+        /// The name of the object. (e.g. "foo", if you want the object to be accessible as window.foo).
+        /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
+        /// The object to be made accessible to Javascript.
+        /// </summary>
+        public object BindObject { get; set; }
+
+        public object BindingOptions { get; set; }
     }
 }
