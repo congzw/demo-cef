@@ -3,4 +3,4 @@
 ## todo list
 
  - [x] 20190327 support anycpu
- - []  shared libs
+ - [x] 20190327 support shared libs
