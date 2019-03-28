@@ -58,6 +58,9 @@
     <Compile Include="ChildPage.xaml.cs">
       <DependentUpon>ChildPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\ChildPageJs.cs" />
+    <Compile Include="ViewModel\MainPageJs.cs" />
+    <Compile Include="ViewModel\PageFontSizeHelper.cs" />
     <Page Include="ChildPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -115,6 +118,12 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="_Local\html\index2.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_Local\html\index2.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="_Local\html\index.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -132,7 +141,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ViewModel\" />
+    <ProjectReference Include="..\CefLibs\CefLibs.csproj">
+      <Project>{319fa17e-97e5-4b31-ba18-737618b3f6d4}</Project>
+      <Name>CefLibs</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

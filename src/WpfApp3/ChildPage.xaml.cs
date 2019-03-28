@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using CefLibs.CefBrowser;
+using WpfApp3.ViewModel;
 
 namespace WpfApp3
 {
@@ -25,7 +15,31 @@ namespace WpfApp3
         {
             InitializeComponent();
             InvokeCount++;
-            this.Message.Text = "ChildPage: " + InvokeCount;
+            this.Message.Text = "ChildPage: " + InvokeCount + " " + DateTime.Now;
+            InitCefView();
+        }
+
+        private void InitCefView()
+        {
+            if (Helper == null)
+            {
+                var entryUri = @"local://whatever/html/index.html";
+                var asyncJsObject = new AsyncJsObject();
+                asyncJsObject.Name = "cefHost";
+                Js = new ChildPageJs(this);
+                asyncJsObject.BindObject = Js;
+                Helper = CefViewHelper.Create(asyncJsObject, entryUri);
+            }
+
+            GridFrontPage.Children.Clear();
+            Helper.AppendCefBrowser(GridFrontPage);
+        }
+
+        public ChildPageJs Js { get; set; }
+        public CefViewHelper Helper { get; set; }
+        public void ShowMessage(string message)
+        {
+            this.Message.Text = message + " [" + DateTime.Now + "]";
         }
     }
 }
