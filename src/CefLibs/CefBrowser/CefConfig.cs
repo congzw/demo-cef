@@ -23,6 +23,10 @@ namespace CefLibs.CefBrowser
                 Init(defaultCefSettings);
             }
             var chromiumWebBrowser = new ChromiumWebBrowser();
+
+            //add F12 dev tool
+            chromiumWebBrowser.KeyboardHandler = new CefKeyBoardHandler();
+
             if (asyncJsObject != null)
             {
                 chromiumWebBrowser.RegisterAsyncJsObject(asyncJsObject.Name, asyncJsObject.BindObject, (BindingOptions)asyncJsObject.BindingOptions);

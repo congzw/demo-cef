@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Markup;
+using CefSharp;
 using CefSharp.Wpf;
 
 namespace CefLibs.CefBrowser
@@ -40,6 +41,39 @@ namespace CefLibs.CefBrowser
             var cefViewHelper = new CefViewHelper();
             cefViewHelper.InitCefBrowser(asyncJsObject, uri);
             return cefViewHelper;
+        }
+
+        public void ExecuteJavaScriptAsync(string code)
+        {
+            var mainFrame = Browser.GetMainFrame();
+            mainFrame.ExecuteJavaScriptAsync(code);
+        }
+        public void Debug(string message)
+        {
+            ExecuteJavaScriptAsync($"console.log('{message}')");
+        }
+        public void Alert(string message)
+        {
+            ExecuteJavaScriptAsync($"alert('{message}')");
+        }
+
+
+        public async void ExecuteCallbackAsync(dynamic callback, params object[] args)
+        {
+            if (callback == null)
+            {
+                return;
+            }
+            IJavascriptCallback theCallback = callback as IJavascriptCallback;
+            if (theCallback == null)
+            {
+                return;
+            }
+
+            using (theCallback)
+            {
+                await theCallback.ExecuteAsync(args);
+            }
         }
     }
 }
