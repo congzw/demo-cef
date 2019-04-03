@@ -6,21 +6,21 @@
     <script src="index.js"></script>
 </head>
 <body>
-<div class="theContainer">
-    <div>
-        <div class="theArea">
-            <h2>callback demo</h2>
+    <div class="theContainer">
+        <div>
+            <div class="theArea">
+                <h2>callback demo</h2>
+            </div>
+        </div>
+        <div class="demo">
+            <hr />
+            <input type="button" value="fooSuccess" onclick="indexVo.foo(true);" />
+            <input type="button" value="fooFail" onclick="indexVo.foo(false);" />
+            <input type="button" value="FooNotExist!" onclick="indexVo.Foo();" />
+            <input type="button" value="blah" onclick="indexVo.blah();" />
+            <input type="button" value="blah2" onclick="indexVo.blah2();" />
+            <input type="button" value="blah3" onclick="indexVo.blah3();" />
         </div>
     </div>
-    <div class="demo">
-        <hr />
-        <input type="button" value="fooSuccess" onclick="indexVo.foo(true);" />
-        <input type="button" value="fooFail" onclick="indexVo.foo(false);" />
-        <input type="button" value="FooNotExist!" onclick="indexVo.Foo();" />
-        <input type="button" value="blah" onclick="indexVo.blah();" />
-        <input type="button" value="blah2" onclick="indexVo.blah2();" />
-        <input type="button" value="blah3" onclick="indexVo.blah3();" />
-    </div>
-</div>
 </body>
 </html>

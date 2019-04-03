@@ -36,7 +36,7 @@ namespace CallbackDemo.ViewModel
             var setting = jsArgs.Length > 0 ? jsArgs[0] : null;
             var onSuccess = jsArgs.Length > 1 ? jsArgs[1] : null;
             var onFail = jsArgs.Length > 2 ? jsArgs[2] : null;
-            
+
             var dynamicHelper = DynamicHelper.Instance;
 
             MainCefViewHelper.Debug(dynamicHelper.ToJson(setting));
