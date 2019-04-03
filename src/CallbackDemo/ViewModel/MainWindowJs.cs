@@ -1,4 +1,5 @@
-﻿using CefLibs;
+﻿using System.Linq;
+using CefLibs;
 using CefLibs.CefBrowser;
 
 namespace CallbackDemo.ViewModel
@@ -27,6 +28,17 @@ namespace CallbackDemo.ViewModel
                 }
             }
             MainCefViewHelper.ExecuteCallbackAsync(failCallback, new { Success = false, Message = "completed with failed!", Data = (object)null });
+        }
+
+        public void Blah(dynamic config, params dynamic[] args)
+        {
+            var dynamicHelper = DynamicHelper.Instance;
+            var json = dynamicHelper.ToJson(config);
+            MainCefViewHelper.Debug(json);
+
+            var objects = args.ToArray();
+            var json2 = dynamicHelper.ToJson(objects);
+            MainCefViewHelper.Debug(json2);
         }
     }
 }

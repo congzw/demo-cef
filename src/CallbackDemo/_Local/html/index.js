@@ -28,6 +28,12 @@
             },
             Foo: function (shouldSuccess) {
                 mainWindowVo.FooWithCallback({ ShouldSuccess: shouldSuccess }, successFunc, failFunc);
+            },
+            blah: function () {
+                mainWindowVo.blah({ Name: 'abc' }, successFunc, failFunc);
+            },
+            blah2: function () {
+                mainWindowVo.blah({ Name: 'abc' });
             }
         };
 
