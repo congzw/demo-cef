@@ -30,15 +30,18 @@ namespace CallbackDemo.ViewModel
             MainCefViewHelper.ExecuteCallbackAsync(failCallback, new { Success = false, Message = "completed with failed!", Data = (object)null });
         }
 
-        public void Blah(dynamic config, params dynamic[] args)
+        public void Blah(params dynamic[] args)
         {
+            var jsArgs = args.ToArray();
+            var setting = jsArgs.Length > 0 ? jsArgs[0] : null;
+            var onSuccess = jsArgs.Length > 1 ? jsArgs[1] : null;
+            var onFail = jsArgs.Length > 2 ? jsArgs[2] : null;
+            
             var dynamicHelper = DynamicHelper.Instance;
-            var json = dynamicHelper.ToJson(config);
-            MainCefViewHelper.Debug(json);
 
-            var objects = args.ToArray();
-            var json2 = dynamicHelper.ToJson(objects);
-            MainCefViewHelper.Debug(json2);
+            MainCefViewHelper.Debug(dynamicHelper.ToJson(setting));
+            MainCefViewHelper.Debug(dynamicHelper.ToJson(onSuccess));
+            MainCefViewHelper.Debug(dynamicHelper.ToJson(onFail));
         }
     }
 }

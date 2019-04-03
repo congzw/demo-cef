@@ -2,6 +2,7 @@
 
 ## todo list
 
+ - [x] 20190403 fix params[] args support
  - [x] 20190403 add callback params[] args support
  - [x] 20190403 add callback demo
  - [x] 20190403 add dynamic support, add F12 devtool
