@@ -30,10 +30,13 @@
                 mainWindowVo.FooWithCallback({ ShouldSuccess: shouldSuccess }, successFunc, failFunc);
             },
             blah: function () {
-                mainWindowVo.blah({ Name: 'abc' }, successFunc, failFunc);
+                mainWindowVo.blah({ Name: 'abc' });
             },
             blah2: function () {
-                mainWindowVo.blah({ Name: 'abc' });
+                mainWindowVo.blah({ Name: 'abc' }, successFunc);
+            },
+            blah3: function () {
+                mainWindowVo.blah({ Name: 'abc' }, successFunc, failFunc);
             }
         };
 
