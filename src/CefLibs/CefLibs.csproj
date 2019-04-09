@@ -57,6 +57,7 @@
     <Compile Include="CefBrowser\LocalFileResourceHandler.cs" />
     <Compile Include="CefBrowser\MySchemeHandlerFactory.cs" />
     <Compile Include="DynamicHelper.cs" />
+    <Compile Include="EnvironmentHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

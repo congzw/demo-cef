@@ -8,7 +8,10 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Grid Grid.Row="0" Grid.Column="0" x:Name="GridFrontPage" ZIndex="0">
-            <Button x:Name="BtnLoad" Content="这是网页层容器" HorizontalAlignment="Center"  VerticalAlignment="Center" Width="75"/>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button x:Name="BtnLoad" Content="这是网页层容器" Margin="5" />
+                <Button x:Name="BtnInfo" Content="系统信息"  Margin="5" />
+            </StackPanel>
         </Grid>
     </Grid>
 </Window>

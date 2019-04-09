@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using CefLibs;
 using CefLibs.CefBrowser;
 
 namespace KeyDemo
@@ -19,6 +20,14 @@ namespace KeyDemo
         private void CustomizeInitializeComponent()
         {
             this.BtnLoad.Click += BtnLoad_Click;
+            this.BtnInfo.Click += BtnInfo_Click;
+        }
+
+        private void BtnInfo_Click(object sender, RoutedEventArgs e)
+        {
+            var environmentHelper = new EnvironmentHelper();
+            var environmentInfo = environmentHelper.CreateEnvironmentInfo();
+            MessageBox.Show(environmentInfo.ToString());
         }
 
         private void BtnLoad_Click(object sender, RoutedEventArgs e)

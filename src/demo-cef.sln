@@ -24,6 +24,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GifDemo", "GifDemo\GifDemo.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeyDemo", "KeyDemo\KeyDemo.csproj", "{FE5E7971-9CDF-4824-A077-64342AFBB89C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoDemo", "VideoDemo\VideoDemo.csproj", "{93BDB8E8-86FA-429A-8701-F8134367AC45}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -62,6 +64,10 @@ Global
 		{FE5E7971-9CDF-4824-A077-64342AFBB89C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE5E7971-9CDF-4824-A077-64342AFBB89C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE5E7971-9CDF-4824-A077-64342AFBB89C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93BDB8E8-86FA-429A-8701-F8134367AC45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93BDB8E8-86FA-429A-8701-F8134367AC45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93BDB8E8-86FA-429A-8701-F8134367AC45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93BDB8E8-86FA-429A-8701-F8134367AC45}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
