@@ -26,6 +26,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeyDemo", "KeyDemo\KeyDemo.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoDemo", "VideoDemo\VideoDemo.csproj", "{93BDB8E8-86FA-429A-8701-F8134367AC45}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnvironmentInfoDemo", "EnvironmentInfoDemo\EnvironmentInfoDemo.csproj", "{9F809F9A-6683-4319-9C97-30B7AA906ECF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -68,6 +70,10 @@ Global
 		{93BDB8E8-86FA-429A-8701-F8134367AC45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93BDB8E8-86FA-429A-8701-F8134367AC45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93BDB8E8-86FA-429A-8701-F8134367AC45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F809F9A-6683-4319-9C97-30B7AA906ECF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F809F9A-6683-4319-9C97-30B7AA906ECF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F809F9A-6683-4319-9C97-30B7AA906ECF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F809F9A-6683-4319-9C97-30B7AA906ECF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
