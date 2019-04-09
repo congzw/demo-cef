@@ -8,7 +8,8 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Grid Grid.Row="0" Grid.Column="0" x:Name="GridBackground" ZIndex="1" Opacity="1">
-            <MediaElement x:Name="DemoVideo" Source="video/small.mp4" Stretch="Fill"  />
+            <StackPanel Grid.Row="0" x:Name="MyContainer" >
+            </StackPanel>
             <Button x:Name="PlayButton" HorizontalAlignment="Center" VerticalAlignment="Bottom" Content="Play" />
             <TextBlock x:Name="TxtMessage" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Foreground="Red"/>
         </Grid>

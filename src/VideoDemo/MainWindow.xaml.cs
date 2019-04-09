@@ -1,5 +1,7 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace VideoDemo
 {
@@ -12,38 +14,56 @@ namespace VideoDemo
         {
             InitializeComponent();
             this.PlayButton.Click += PlayButton_Click;
-            this.DemoVideo.MediaOpened += DemoVideo_MediaOpened;
-            this.DemoVideo.MediaFailed += DemoVideo_MediaFailed;
-            this.DemoVideo.MediaEnded += DemoVideo_MediaEnded;
         }
 
         private void PlayButton_Click(object sender, RoutedEventArgs e)
         {
-            this.DemoVideo.LoadedBehavior = MediaState.Manual;
-            this.DemoVideo.Visibility = Visibility.Visible;
-            this.DemoVideo.Play();
+            if (_playing)
+            {
+                ShowMessage("playing, wait!");
+                return;
+            }
+            CreateAndPlay();
         }
-
-        private void DemoVideo_MediaOpened(object sender, RoutedEventArgs e)
-        {
-            ShowMessage("MediaOpened");
-        }
-
-        private void DemoVideo_MediaFailed(object sender, ExceptionRoutedEventArgs e)
-        {
-            ShowMessage("MediaFailed" + e.ErrorException.Message);
-        }
-
-        private void DemoVideo_MediaEnded(object sender, RoutedEventArgs e)
-        {
-            ShowMessage("MediaEnded");
-            this.DemoVideo.Visibility = Visibility.Collapsed;
-        }
-
+        
         private void ShowMessage(string message)
         {
+            //MessageBox.Show(message);
             this.TxtMessage.Text = message;
             this.TxtMessage.Visibility = Visibility.Visible;
+        }
+        
+        //解决多次播放的问题
+        private bool _playing = false;
+        private void CreateAndPlay()
+        {
+            _playing = true;
+            var mediaElement = new MediaElement();
+            mediaElement.LoadedBehavior = MediaState.Manual;
+            mediaElement.UnloadedBehavior = MediaState.Close;
+            mediaElement.Source = new Uri("video/small.mp4", UriKind.Relative);
+            mediaElement.Stretch = Stretch.Fill;
+
+            mediaElement.MediaOpened += (sender, args) =>
+            {
+                ShowMessage("MediaOpened");
+            };
+
+            mediaElement.MediaEnded += (sender, args) =>
+            {
+                ShowMessage("MediaEnded");
+                MyContainer.Children.Remove(mediaElement);
+                mediaElement = null;
+                _playing = false;
+            };
+
+            mediaElement.MediaFailed += (sender, args) =>
+            {
+                ShowMessage("MediaFailed" + args.ErrorException.Message);
+            };
+
+            MyContainer.Children.Add(mediaElement);
+            mediaElement.Play();
         }
     }
 }
