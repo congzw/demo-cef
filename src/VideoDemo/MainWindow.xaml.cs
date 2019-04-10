@@ -14,6 +14,12 @@ namespace VideoDemo
         {
             InitializeComponent();
             this.PlayButton.Click += PlayButton_Click;
+            this.ExButton.Click += ExButton_Click;
+        }
+
+        private void ExButton_Click(object sender, RoutedEventArgs e)
+        {
+            throw new InvalidOperationException("whatever!");
         }
 
         private void PlayButton_Click(object sender, RoutedEventArgs e)

@@ -7,11 +7,20 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Grid Grid.Row="0" Grid.Column="0" x:Name="GridBackground" ZIndex="1" Opacity="1">
-            <StackPanel Grid.Row="0" x:Name="MyContainer" >
-            </StackPanel>
-            <Button x:Name="PlayButton" HorizontalAlignment="Center" VerticalAlignment="Bottom" Content="Play" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="320*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="50*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" x:Name="MyContainer" >
+            <MediaElement x:Name="MediaPlayer" LoadedBehavior="Manual"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
             <TextBlock x:Name="TxtMessage" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Foreground="Red"/>
-        </Grid>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center">
+            <Button x:Name="PlayButton" Content="Play" Height="25" Margin="5"/>
+            <Button x:Name="ExButton" Content="Exception" Height="25" Margin="5"/>
+        </StackPanel>
     </Grid>
 </Window>
