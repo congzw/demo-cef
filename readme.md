@@ -13,3 +13,5 @@
  - [x] 20190327 support async js call
  - [x] 20190327 support anycpu
  - [x] 20190327 support shared libs
+
+ - [x] 2019412 add multi layer grid switch demo
