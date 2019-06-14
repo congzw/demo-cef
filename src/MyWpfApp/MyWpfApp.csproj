@@ -58,6 +58,11 @@
     <Compile Include="LayerWindow.xaml.cs">
       <DependentUpon>LayerWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Traces\CmdHelper.cs" />
+    <Compile Include="Traces\JaegerHelper.cs" />
+    <Compile Include="TraceWindow.xaml.cs">
+      <DependentUpon>TraceWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\LayerWindowVo.cs" />
     <Compile Include="ViewModel\MainWindowVo.cs" />
     <Page Include="LayerWindow.xaml">
@@ -76,6 +81,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="TraceWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -113,6 +122,10 @@
       <Name>MyResources</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="_Local\html\empty.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -2,6 +2,8 @@
 
 ## todo list
 
+ - [x] 20190614 增加Jaeger链路追踪演示(注意:手动放置jaeger-all-in-one.exe到运行目录下)
+
  - [x] 20190403 fix params[] args support
  - [x] 20190403 add callback params[] args support
  - [x] 20190403 add callback demo
