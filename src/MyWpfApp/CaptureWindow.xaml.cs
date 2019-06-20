@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows;
 using System.Windows.Media.Imaging;
+using MyWpfApp.Captures;
+using Point = System.Windows.Point;
 
 namespace MyWpfApp
 {
@@ -30,8 +33,10 @@ namespace MyWpfApp
 
         private void BtnCapture_Click(object sender, RoutedEventArgs e)
         {
-            CaptureIt(this.TheImage, "_capture.png");
-            CaptureIt(this.TheVideo, "_captureV.png");
+            CaptureScreen(this.CaptureArea);
+            //CaptureScreen(this.GridBackground);
+            //CaptureIt(this.TheImage, "_capture.png");
+            //CaptureIt(this.TheVideo, "_captureV.png");
         }
 
         private void CaptureIt(FrameworkElement control, string pictureName)
@@ -39,6 +44,12 @@ namespace MyWpfApp
             //capture video
             var savePng = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"_Local\html\" + pictureName);
             CaptureHelper.CaptureTo(control, savePng);
+        }
+
+        private void CaptureScreen(FrameworkElement control)
+        {
+            ScreenCapture.CopyControlTo(control, System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"test\CopyControlTo.png"));
+            ScreenCapture.CopyScreenAreaTo(control, this, System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"test\CopyControlTo.png"), "AppendText!!!");
         }
     }
 }
